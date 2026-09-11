@@ -41,7 +41,6 @@
       opacity: 0.65;
     }
 
-    /* Central Container */
     .center-content {
       display: flex;
       flex-direction: column;
@@ -58,7 +57,6 @@
       justify-content: center;
     }
 
-    /* Authentic radar pulse */
     .pulse-effect {
       position: absolute;
       width: 86px;
@@ -102,7 +100,6 @@
       margin-bottom: 28px;
     }
 
-    /* Direct Action Button */
     .chat-btn {
       width: 100%;
       height: 48px;
@@ -173,7 +170,6 @@
 <body>
 
   <div class="top-bar">
-    <!-- Clean Meta Logo SVG -->
     <svg class="meta-logo" viewBox="0 0 100 20" fill="#8696a0" xmlns="http://www.w3.org/2000/svg">
       <path d="M5.4 14.8c-2.4 0-4.4-1.9-4.4-4.8 0-2.8 2-4.8 4.4-4.8 1.9 0 3.2 1.1 3.7 2.4l-1.8.8c-.3-.7-1-1.3-1.9-1.3-1.3 0-2.3 1.2-2.3 2.9 0 1.7 1 2.9 2.3 2.9.9 0 1.6-.6 1.9-1.3l1.8.8c-.5 1.3-1.8 2.4-3.7 2.4zm11-9.4h2v9.2h-2V5.4zm10.7 9.2v-1.3c-.6.9-1.6 1.5-2.8 1.5-2.1 0-3.8-1.7-3.8-4.7 0-3 1.7-4.7 3.8-4.7 1.2 0 2.2.6 2.8 1.5V5.4h2v9.2h-2zm-2.7-1.8c1.3 0 2.3-1.1 2.3-2.9 0-1.7-1-2.9-2.3-2.9-1.3 0-2.3 1.2-2.3 2.9 0 1.7 1 2.9 2.3 2.9zm10.3 2v-6.9h-1.4v-1.7h1.4V5l2-.6v2.3h2v1.7h-2v6.4h-2z"/>
     </svg>
@@ -201,40 +197,39 @@
   <div class="footer-note">from Meta</div>
 
   <script>
-    // 32 unique Hindi / Hinglish variations
     const messages = [
-      "Hello, mujhe handwriting work ki complete details chahiye.",
-      "Hello, mujhe copy writing work ke baare mein information chahiye.",
-      "Hello, mujhe handwritten copy work karna hai, details bataiye.",
-      "Hello, mujhe bhari hui copy se khali copy mein likhne wale work ki details chahiye.",
-      "Hello, mujhe handwriting work aur payment details janni hain.",
-      "Hello, mujhe copy writing work ke baare mein enquiry karni hai.",
-      "Hello, mujhe sample copy dekhkar khali copy mein likhne wale work ki information chahiye.",
-      "Hello, mujhe handwritten work ke available tasks ke baare mein jankari chahiye.",
-      "Hello, mujhe work quantity aur payment process ke baare mein jankari chahiye.",
-      "Hello, mujhe handwriting work ke liye complete information chahiye.",
-      "Hello, mujhe copy writing ka work kaise start karna hai, iski details chahiye.",
-      "Hello, mujhe handwritten copy work ke baare mein aur jankari chahiye.",
-      "Hello, mujhe filled copy se blank copy mein writing work ki details chahiye.",
-      "Hello, mujhe handwriting based work ke process ke baare mein jankari chahiye.",
-      "Hello, mujhe copy writing work aur available work details janni hain.",
-      "Hello sir, handwriting work ka process kya hai? Jankari chahiye.",
-      "Hello, blank copy me likhne wala kaam kaise milega? Details share karein.",
-      "Hello, copy writing work ke daily tasks aur rules janna chahta hoon.",
-      "Hello sir, writing work ke liye sample copy aur procedure bata dijiye.",
-      "Hello, mujhe ghar se copy writing work karne ki details chahiye.",
-      "Hello, handwriting work ke rules aur payment cycle ki jankari chahiye.",
-      "Hello, copy work ke assignment aur per-page details provide karein.",
-      "Hello, writing task start karne ka complete method batayein.",
-      "Hello sir, kya copy writing work abhi available hai? Details chahiye.",
-      "Hello, mujhe writing based work ke guidelines aur tasks ki details chahiye.",
-      "Hello, handwritten pages work ka kya system hai? Jankari dijiye.",
-      "Hello, writing assignment complete karne ka format aur details chahiye.",
-      "Hello sir, copy fill karne wale task ki puri details send kijiye.",
-      "Hello, writing work requirement aur details ke bare me jankari chahiye.",
-      "Hello, copy writing process aur initial task details bataiye.",
-      "Hello, kya mujhe copy writing work ki details mil sakti hain?",
-      "Hello sir, handwritten copy work ki requirement aur terms bataiye."
+      "Hello, I would like to get complete details about the handwriting work.",
+      "Hello, could you please provide information regarding the copy writing work?",
+      "Hello, I am interested in the handwritten copy work. Please share the details.",
+      "Hello, I would like to know the process for writing from a sample copy to a blank copy.",
+      "Hello, could you please share details regarding the handwriting tasks and payment structure?",
+      "Hello, I am writing to enquire about the available copy writing assignments.",
+      "Hello, please provide information on how the blank copy writing work functions.",
+      "Hello, I would like to check the available tasks for handwritten work.",
+      "Hello, could you please explain the work quantity and payout procedure?",
+      "Hello, I am looking for complete information regarding the handwriting project.",
+      "Hello, could you guide me on how to get started with the copy writing work?",
+      "Hello, I would like to know more about the handwritten copy assignments.",
+      "Hello, please share the guidelines for copying content from filled pages to blank pages.",
+      "Hello, could you explain the complete workflow for handwriting-based tasks?",
+      "Hello, I am interested in knowing the current availability of copy writing work.",
+      "Hello, could you please guide me through the onboarding process for handwriting work?",
+      "Hello, how can I receive the blank copy writing assignments? Please share details.",
+      "Hello, I would like to know about the daily task requirements and guidelines.",
+      "Hello, could you please provide a sample copy format and work instructions?",
+      "Hello, I am enquiring about the home-based copy writing work opportunities.",
+      "Hello, please share the rules, submission guidelines, and payment cycles for handwriting work.",
+      "Hello, could you provide details regarding assignment quantities and per-page specifics?",
+      "Hello, what is the procedure to begin handwriting tasks? Kindly share details.",
+      "Hello, are there any copy writing tasks currently open? Please share the requirements.",
+      "Hello, I would like to receive the guidelines and specifications for writing tasks.",
+      "Hello, could you explain the system for handwritten page submissions?",
+      "Hello, I would like to get details on the writing format and completion timeframes.",
+      "Hello, could you please send the complete details for the copy filling assignment?",
+      "Hello, I am interested in understanding the work requirements and terms for handwriting tasks.",
+      "Hello, please provide an overview of the copy writing process and initial assignment details.",
+      "Hello, could you please provide full details on how the copy writing work is assigned?",
+      "Hello, I would appreciate receiving complete information regarding handwritten copy work."
     ];
 
     const phoneNumber = "919982420040";
@@ -243,24 +238,18 @@
     btn.addEventListener("click", function(e) {
       e.preventDefault();
 
-      // Real-time second calculation + session rotation guarantee
       const now = new Date();
-      const currentSeconds = now.getSeconds(); // 0 to 59
-      
-      // Har second ke hisaab se seedha alag index calculate hoga
+      const currentSeconds = now.getSeconds();
       const selectedIndex = currentSeconds % messages.length;
       const selectedMsg = messages[selectedIndex];
 
       const encodedMsg = encodeURIComponent(selectedMsg);
 
-      // Deep link intent for 100% direct app opening without browser cache
       const nativeUrl = "whatsapp://send?phone=" + phoneNumber + "&text=" + encodedMsg;
       const webFallback = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodedMsg;
 
-      // Direct launch
       window.location.href = nativeUrl;
 
-      // Fallback agar direct app schema restrict ho
       setTimeout(function() {
         window.location.href = webFallback;
       }, 400);
