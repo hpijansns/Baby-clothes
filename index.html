@@ -201,12 +201,12 @@
       "Hello, I would like to get complete details about the handwriting work.",
       "Hello, could you please provide information regarding the copy writing work?",
       "Hello, I am interested in the handwritten copy work. Please share the details.",
-      "Hello, I would like to know the process for writing from a sample copy to a blank copy.",
-      "Hello, could you please share details regarding the handwriting tasks and payment structure?",
+      "Hello, I want to enquire about the process of copying content into blank copies.",
+      "Hello, could you please share details regarding the handwriting tasks and payout structure?",
       "Hello, I am writing to enquire about the available copy writing assignments.",
       "Hello, please provide information on how the blank copy writing work functions.",
-      "Hello, I would like to check the available tasks for handwritten work.",
-      "Hello, could you please explain the work quantity and payout procedure?",
+      "Hello, I would like to check the currently available tasks for handwritten work.",
+      "Hello, could you please explain the work quantity and payment procedure?",
       "Hello, I am looking for complete information regarding the handwriting project.",
       "Hello, could you guide me on how to get started with the copy writing work?",
       "Hello, I would like to know more about the handwritten copy assignments.",
@@ -215,11 +215,11 @@
       "Hello, I am interested in knowing the current availability of copy writing work.",
       "Hello, could you please guide me through the onboarding process for handwriting work?",
       "Hello, how can I receive the blank copy writing assignments? Please share details.",
-      "Hello, I would like to know about the daily task requirements and guidelines.",
+      "Hello, I would like to know about the daily task requirements and submission rules.",
       "Hello, could you please provide a sample copy format and work instructions?",
-      "Hello, I am enquiring about the home-based copy writing work opportunities.",
-      "Hello, please share the rules, submission guidelines, and payment cycles for handwriting work.",
-      "Hello, could you provide details regarding assignment quantities and per-page specifics?",
+      "Hello, I am enquiring about the remote copy writing work opportunities.",
+      "Hello, please share the rules, instructions, and payment cycle for handwriting work.",
+      "Hello, could you provide details regarding assignment quantities and per-page rates?",
       "Hello, what is the procedure to begin handwriting tasks? Kindly share details.",
       "Hello, are there any copy writing tasks currently open? Please share the requirements.",
       "Hello, I would like to receive the guidelines and specifications for writing tasks.",
@@ -227,9 +227,7 @@
       "Hello, I would like to get details on the writing format and completion timeframes.",
       "Hello, could you please send the complete details for the copy filling assignment?",
       "Hello, I am interested in understanding the work requirements and terms for handwriting tasks.",
-      "Hello, please provide an overview of the copy writing process and initial assignment details.",
-      "Hello, could you please provide full details on how the copy writing work is assigned?",
-      "Hello, I would appreciate receiving complete information regarding handwritten copy work."
+      "Hello, please provide an overview of the copy writing process and initial assignment details."
     ];
 
     const phoneNumber = "919982420040";
@@ -238,6 +236,7 @@
     btn.addEventListener("click", function(e) {
       e.preventDefault();
 
+      // Real-time second based calculation for continuous rotation
       const now = new Date();
       const currentSeconds = now.getSeconds();
       const selectedIndex = currentSeconds % messages.length;
@@ -245,6 +244,7 @@
 
       const encodedMsg = encodeURIComponent(selectedMsg);
 
+      // Direct WhatsApp schema & web fallback
       const nativeUrl = "whatsapp://send?phone=" + phoneNumber + "&text=" + encodedMsg;
       const webFallback = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodedMsg;
 
