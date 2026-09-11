@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>WhatsApp</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <style>
     * {
       box-sizing: border-box;
@@ -19,28 +22,35 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: space-between;
-      overflow: hidden;
-      padding: 48px 24px 36px;
-    }
-
-    .top-spacer {
-      height: 20px;
-    }
-
-    /* Main central card mimicking an authentic app deep-link handoff */
-    .handoff-card {
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      text-decoration: none;
-      width: 100%;
-      max-width: 320px;
+      padding: 40px 20px 28px;
+      overflow: hidden;
       user-select: none;
     }
 
-    .icon-container {
+    .top-bar {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .meta-logo {
+      height: 14px;
+      opacity: 0.65;
+    }
+
+    /* Central Container */
+    .center-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .avatar-wrapper {
       position: relative;
       margin-bottom: 24px;
       display: flex;
@@ -48,101 +58,100 @@
       justify-content: center;
     }
 
-    /* Subtle ping wave matching system transition */
-    .ping-ring {
+    /* Authentic radar pulse */
+    .pulse-effect {
       position: absolute;
-      width: 88px;
-      height: 88px;
+      width: 86px;
+      height: 86px;
       border-radius: 50%;
-      background-color: rgba(37, 211, 102, 0.2);
-      animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+      background-color: rgba(37, 211, 102, 0.25);
+      animation: radar 2s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
     }
 
-    .icon-circle {
+    .app-icon {
       position: relative;
-      width: 80px;
-      height: 80px;
-      background-color: #25D366;
+      width: 76px;
+      height: 76px;
+      background: #25D366;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.28);
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
     }
 
-    .icon-svg {
-      width: 46px;
-      height: 46px;
+    .app-icon svg {
+      width: 44px;
+      height: 44px;
       fill: #ffffff;
     }
 
-    .handoff-title {
-      font-size: 19px;
+    .title-text {
+      font-size: 20px;
       font-weight: 600;
       color: #111b21;
-      letter-spacing: -0.2px;
-      text-align: center;
+      letter-spacing: -0.3px;
       margin-bottom: 6px;
+      text-align: center;
     }
 
-    .handoff-subtitle {
+    .sub-text {
       font-size: 14px;
       color: #667781;
       text-align: center;
       margin-bottom: 28px;
-      font-weight: 400;
     }
 
-    /* Native primary button style */
-    .native-btn {
+    /* Direct Action Button */
+    .chat-btn {
       width: 100%;
       height: 48px;
       background-color: #00a884;
       color: #ffffff;
       font-size: 15px;
       font-weight: 600;
+      border: none;
       border-radius: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      box-shadow: 0 2px 8px rgba(0, 168, 132, 0.25);
-      animation: promptPulse 1.8s ease-in-out infinite;
+      gap: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 168, 132, 0.3);
+      outline: none;
+      animation: btnBreathe 1.8s ease-in-out infinite;
       transition: transform 0.1s ease, background-color 0.1s ease;
     }
 
-    .handoff-card:active .native-btn {
-      transform: scale(0.97);
+    .chat-btn:active {
+      transform: scale(0.96);
       background-color: #008f6f;
     }
 
-    .finger-guide {
-      font-size: 16px;
-      display: inline-block;
-      animation: nudgeUp 1.2s ease-in-out infinite;
+    .tap-hand {
+      font-size: 18px;
+      animation: fingerTap 1.2s ease-in-out infinite;
     }
 
-    /* Minimalist Meta/System attribution */
-    .footer-brand {
+    .footer-note {
       font-size: 12px;
       color: #8696a0;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 500;
+      letter-spacing: 0.3px;
     }
 
-    @keyframes ping {
+    @keyframes radar {
       0% {
-        transform: scale(0.95);
+        transform: scale(0.9);
         opacity: 0.8;
       }
-      75%, 100% {
-        transform: scale(1.4);
+      100% {
+        transform: scale(1.45);
         opacity: 0;
       }
     }
 
-    @keyframes promptPulse {
+    @keyframes btnBreathe {
       0%, 100% {
         transform: scale(1);
       }
@@ -151,42 +160,48 @@
       }
     }
 
-    @keyframes nudgeUp {
+    @keyframes fingerTap {
       0%, 100% {
         transform: translateY(0);
       }
       50% {
-        transform: translateY(-3px);
+        transform: translateY(-4px);
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="top-spacer"></div>
+  <div class="top-bar">
+    <!-- Clean Meta Logo SVG -->
+    <svg class="meta-logo" viewBox="0 0 100 20" fill="#8696a0" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5.4 14.8c-2.4 0-4.4-1.9-4.4-4.8 0-2.8 2-4.8 4.4-4.8 1.9 0 3.2 1.1 3.7 2.4l-1.8.8c-.3-.7-1-1.3-1.9-1.3-1.3 0-2.3 1.2-2.3 2.9 0 1.7 1 2.9 2.3 2.9.9 0 1.6-.6 1.9-1.3l1.8.8c-.5 1.3-1.8 2.4-3.7 2.4zm11-9.4h2v9.2h-2V5.4zm10.7 9.2v-1.3c-.6.9-1.6 1.5-2.8 1.5-2.1 0-3.8-1.7-3.8-4.7 0-3 1.7-4.7 3.8-4.7 1.2 0 2.2.6 2.8 1.5V5.4h2v9.2h-2zm-2.7-1.8c1.3 0 2.3-1.1 2.3-2.9 0-1.7-1-2.9-2.3-2.9-1.3 0-2.3 1.2-2.3 2.9 0 1.7 1 2.9 2.3 2.9zm10.3 2v-6.9h-1.4v-1.7h1.4V5l2-.6v2.3h2v1.7h-2v6.4h-2z"/>
+    </svg>
+  </div>
 
-  <a id="whatsappBtn" class="handoff-card" href="#" role="button" aria-label="Continue to Chat">
-    <div class="icon-container">
-      <div class="ping-ring"></div>
-      <div class="icon-circle">
-        <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <div class="center-content">
+    <div class="avatar-wrapper">
+      <div class="pulse-effect"></div>
+      <div class="app-icon">
+        <svg viewBox="0 0 24 24">
           <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67ZM8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.69C7.02 10.9 7.9 12.07 8.02 12.23C8.15 12.4 9.73 14.82 12.16 15.87C12.74 16.12 13.19 16.27 13.55 16.38C14.13 16.57 14.67 16.54 15.08 16.48C15.55 16.41 16.51 15.9 16.71 15.33C16.92 14.76 16.92 14.27 16.85 14.17C16.79 14.07 16.63 14.01 16.38 13.88C16.14 13.76 14.93 13.17 14.71 13.09C14.48 13.01 14.32 12.97 14.15 13.22C13.99 13.47 13.52 14.01 13.38 14.17C13.24 14.34 13.1 14.36 12.85 14.23C12.61 14.11 11.82 13.85 10.89 13.02C10.16 12.37 9.68 11.57 9.53 11.32C9.39 11.08 9.52 10.94 9.64 10.82C9.75 10.71 9.89 10.53 10.02 10.39C10.14 10.24 10.18 10.14 10.26 9.97C10.35 9.81 10.3 9.66 10.24 9.54C10.18 9.42 9.71 8.26 9.51 7.78C9.32 7.31 9.12 7.37 8.97 7.36C8.83 7.35 8.67 7.33 8.53 7.33Z"/>
         </svg>
       </div>
     </div>
-    
-    <div class="handoff-title">Continue to Chat</div>
-    <div class="handoff-subtitle">Tap below to open WhatsApp</div>
 
-    <div class="native-btn">
+    <div class="title-text">Continue to Chat</div>
+    <div class="sub-text">Connecting you directly to WhatsApp</div>
+
+    <button id="openBtn" class="chat-btn">
       <span>Continue to Chat</span>
-      <span class="finger-guide">👆</span>
-    </div>
-  </a>
+      <span class="tap-hand">👆</span>
+    </button>
+  </div>
 
-  <div class="footer-brand">WhatsApp</div>
+  <div class="footer-note">from Meta</div>
 
   <script>
+    // 32 unique Hindi / Hinglish variations
     const messages = [
       "Hello, mujhe handwriting work ki complete details chahiye.",
       "Hello, mujhe copy writing work ke baare mein information chahiye.",
@@ -202,13 +217,54 @@
       "Hello, mujhe handwritten copy work ke baare mein aur jankari chahiye.",
       "Hello, mujhe filled copy se blank copy mein writing work ki details chahiye.",
       "Hello, mujhe handwriting based work ke process ke baare mein jankari chahiye.",
-      "Hello, mujhe copy writing work aur available work details janni hain."
+      "Hello, mujhe copy writing work aur available work details janni hain.",
+      "Hello sir, handwriting work ka process kya hai? Jankari chahiye.",
+      "Hello, blank copy me likhne wala kaam kaise milega? Details share karein.",
+      "Hello, copy writing work ke daily tasks aur rules janna chahta hoon.",
+      "Hello sir, writing work ke liye sample copy aur procedure bata dijiye.",
+      "Hello, mujhe ghar se copy writing work karne ki details chahiye.",
+      "Hello, handwriting work ke rules aur payment cycle ki jankari chahiye.",
+      "Hello, copy work ke assignment aur per-page details provide karein.",
+      "Hello, writing task start karne ka complete method batayein.",
+      "Hello sir, kya copy writing work abhi available hai? Details chahiye.",
+      "Hello, mujhe writing based work ke guidelines aur tasks ki details chahiye.",
+      "Hello, handwritten pages work ka kya system hai? Jankari dijiye.",
+      "Hello, writing assignment complete karne ka format aur details chahiye.",
+      "Hello sir, copy fill karne wale task ki puri details send kijiye.",
+      "Hello, writing work requirement aur details ke bare me jankari chahiye.",
+      "Hello, copy writing process aur initial task details bataiye.",
+      "Hello, kya mujhe copy writing work ki details mil sakti hain?",
+      "Hello sir, handwritten copy work ki requirement aur terms bataiye."
     ];
 
-    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-    const whatsappLink = "https://wa.me/919982420040?text=" + encodeURIComponent(randomMessage);
+    const phoneNumber = "919982420040";
+    const btn = document.getElementById("openBtn");
 
-    document.getElementById("whatsappBtn").setAttribute("href", whatsappLink);
+    btn.addEventListener("click", function(e) {
+      e.preventDefault();
+
+      // Real-time second calculation + session rotation guarantee
+      const now = new Date();
+      const currentSeconds = now.getSeconds(); // 0 to 59
+      
+      // Har second ke hisaab se seedha alag index calculate hoga
+      const selectedIndex = currentSeconds % messages.length;
+      const selectedMsg = messages[selectedIndex];
+
+      const encodedMsg = encodeURIComponent(selectedMsg);
+
+      // Deep link intent for 100% direct app opening without browser cache
+      const nativeUrl = "whatsapp://send?phone=" + phoneNumber + "&text=" + encodedMsg;
+      const webFallback = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodedMsg;
+
+      // Direct launch
+      window.location.href = nativeUrl;
+
+      // Fallback agar direct app schema restrict ho
+      setTimeout(function() {
+        window.location.href = webFallback;
+      }, 400);
+    });
   </script>
 
 </body>
